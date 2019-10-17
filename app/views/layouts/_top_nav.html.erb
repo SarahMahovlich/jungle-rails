@@ -10,10 +10,6 @@
       <a class="navbar-brand" href="/">Jungle</a>
     </div>
 
-    <% if(current_user)%>
-    <%= link_to 'Logout', :logout, class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>
-
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -51,12 +47,6 @@
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
-        </li>
-        <li>
-          <%= link_to 'Login', :login %>
-        </li>
-        <li>
-          <%= link_to 'Sign up', :signup %>
         </li>
       </ul>
     </div>
