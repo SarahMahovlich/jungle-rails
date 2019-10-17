@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <h4><%= category.name %></h4>
+  </td>
+  <td>
+    <%= category.products.count %>
+  </td>
+  <td>
+    <%= Time.parse(category.created_at.to_s) %>
+  </td>
+</tr>
