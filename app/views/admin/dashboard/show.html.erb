@@ -6,10 +6,11 @@
       <div class="caption">
         <h2>Categories: <%= @categories.count %></h2>
         <p> <% @categories.each do |category| %>
-            <%= link_to category.name, category, :class => "btn btn-primary" %>
+            <%= link_to category.name, category, :class => "btn btn-info" %>
           <% end %>
         </p>
     </div>
+    <%= link_to 'All Categories', [:admin, :categories], :class => "btn btn-primary" %>
   </div>
 </div>
 
