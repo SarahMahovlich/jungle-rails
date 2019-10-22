@@ -43,29 +43,28 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
       expect(subject.errors[:password]).to_not be_empty
     end
+  end
 
-    describe '.authenticate_with_credentials' do
-      it "is valid when email and password are in the database" do
-        user = User.authenticate_with_credentials('bobby@gmail.com', 'password')
-        expect(subject).eql? user
-      end
-
-      it "is nil if when password wrong" do
-        user = User.authenticate_with_credentials('bobby@gmail.com', 'passwordsdfs')
-        expect(subject).eql? nil
-      end
-
-      it "login is valid if email entered with whitespace" do
-        user = User.authenticate_with_credentials('  bobby@gmail.com  ', 'password')
-        expect(subject).to be_valid
-      end
-
-      it "login is valid if email entered with capitals" do
-        user = User.authenticate_with_credentials('boBBy@gmail.com', 'password')
-        expect(subject).to be_valid
-      end
+  describe '.authenticate_with_credentials' do
+    it "is valid when email and password are in the database" do
+      user = User.authenticate_with_credentials('bobby@gmail.com', 'password')
+      expect(subject).eql? user
     end
-    
+
+    it "is nil if when password wrong" do
+      user = User.authenticate_with_credentials('bobby@gmail.com', 'passwordsdfs')
+      expect(subject).eql? nil
+    end
+
+    it "login is valid if email entered with whitespace" do
+      user = User.authenticate_with_credentials('  bobby@gmail.com  ', 'password')
+      expect(subject).to be_valid
+    end
+
+    it "login is valid if email entered with capitals" do
+      user = User.authenticate_with_credentials('boBBy@gmail.com', 'password')
+      expect(subject).to be_valid
+    end
   end
 
 end
