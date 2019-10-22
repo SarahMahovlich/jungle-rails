@@ -2,7 +2,18 @@
     <h1>Sign up!</h1>
 </header>
 
-<%= form_for :user, url: '/users' do |f| %>
+<%= form_for @user do |f| %>
+
+  <% if @user.errors.any? %>
+  <div class="alert alert-danger">
+    <strong>The following errors prevented saving:</strong>
+    <ul>
+      <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
   Name: <%= f.text_field :name %>
   </br>
